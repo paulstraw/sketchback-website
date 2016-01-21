@@ -25,14 +25,9 @@
         transition: visibility, opacity 240ms ease-out;
       }
 
-      .wf-loading {
+      .hidden {
         visibility: hidden;
         opacity: 0;
-      }
-
-      .wf-active, .wf-inactive {
-        visibility: visible;
-        opacity: 1;
       }
 
       body {
@@ -140,8 +135,8 @@
 
   <body>
     <img
-      srcset="https://sketchback-static.imgix.net/logo.png?auto=format&amp;w=300&amp;dpr=2 2x"
-      src="https://sketchback-static.imgix.net/logo.png?auto=format&amp;w=300" alt="Sketchback Logo"
+      srcset="https://sketchback-static.imgix.net/logo.png?auto=format&amp;fm=jpg&amp;lossless=true&amp;w=300&amp;dpr=2 2x"
+      src="https://sketchback-static.imgix.net/logo.png?auto=format&amp;fm=jpg&amp;lossless=true&amp;w=300" alt="Sketchback Logo"
     >
 
     <p>Sketchback is a pretty great way to keep up with people you like. You should sign up to be notified when you can use it. Made with love by <a href="https://twitter.com/paulstraw">Paul Straw</a>.</p>
@@ -159,9 +154,12 @@
 
     <script>
       (function() {
+        var htmlClasses = document.querySelector('html').classList;
+
+        htmlClasses.add('hidden');
         window.setTimeout(function() {
-          document.querySelector('html').classList.remove('wf-loading');
-        }, 600);
+          htmlClasses.remove('hidden');
+        }, 450);
       }());
 
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
